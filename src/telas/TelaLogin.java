@@ -156,7 +156,20 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        TelaMenu menu = new TelaMenu();
+        menu.setVisible(true);
+        String nome;
+        String senha;
+        
+        nome = tfdUsuario.getText();
+        senha = tfdSenha.getText();
+        
+        if(nome == "teste" && senha == "teste"){
+            
+    }
+
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

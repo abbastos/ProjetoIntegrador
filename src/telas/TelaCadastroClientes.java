@@ -77,7 +77,7 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
         lblUserConectado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Fornecedores");
+        setTitle("Cadastro de Clientes");
         setResizable(false);
 
         btnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar-64.png"))); // NOI18N
