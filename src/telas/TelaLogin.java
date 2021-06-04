@@ -5,6 +5,8 @@
  */
 package telas;
 
+import entidades.Usuario;
+
 /**
  *
  * @author adriano.bastos
@@ -156,20 +158,14 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nome = "admin";
+        String senha = "admin";
         
-        TelaMenu menu = new TelaMenu();
-        menu.setVisible(true);
-        String nome;
-        String senha;
+        Usuario login = new Usuario(nome, senha);
         
-        nome = tfdUsuario.getText();
-        senha = tfdSenha.getText();
         
-        if(nome == "teste" && senha == "teste"){
-            
-    }
 
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
