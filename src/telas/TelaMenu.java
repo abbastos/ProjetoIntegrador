@@ -5,6 +5,14 @@
  */
 package telas;
 
+import entidades.Usuario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.Timer;
+
 /**
  *
  * @author AdrianoBenelliBastos
@@ -34,12 +42,18 @@ public class TelaMenu extends javax.swing.JFrame {
         lblDataHora = new javax.swing.JLabel();
         lblConectado = new javax.swing.JLabel();
         lblUserInfo = new javax.swing.JLabel();
+        lblHora = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuUsuario = new javax.swing.JMenu();
         menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Programas");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Cadastros");
@@ -73,7 +87,7 @@ public class TelaMenu extends javax.swing.JFrame {
         jpnPrincipal.setLayout(jpnPrincipalLayout);
         jpnPrincipalLayout.setHorizontalGroup(
             jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         jpnPrincipalLayout.setVerticalGroup(
             jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,22 +97,47 @@ public class TelaMenu extends javax.swing.JFrame {
                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
         lblDataHora.setText("DataHora");
-        jPanel1.add(lblDataHora, java.awt.BorderLayout.EAST);
 
         lblConectado.setText("Conectado ");
-        jPanel1.add(lblConectado, java.awt.BorderLayout.WEST);
 
         lblUserInfo.setText("Informações do usuário: ");
         lblUserInfo.setName(""); // NOI18N
-        jPanel1.add(lblUserInfo, java.awt.BorderLayout.CENTER);
+
+        lblHora.setText("Hora");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblConectado)
+                .addGap(18, 18, 18)
+                .addComponent(lblUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDataHora, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lblHora)
+                .addComponent(lblDataHora))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lblConectado)
+                .addComponent(lblUserInfo))
+        );
 
         menuUsuario.setText("Usuário");
         jMenuBar1.add(menuUsuario);
 
         menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(menuSair);
 
         setJMenuBar(jMenuBar1);
@@ -124,7 +163,32 @@ public class TelaMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        //Exibir data e hora do sistema em label no rodapé
+        //Data
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        lblDataHora.setText(formato.format(dataSistema));
+
+        //Hora
+        Timer hora = new Timer(1000, new hora());
+        hora.start();
+        
+        //Usuário conectado
+        /*
+        Usuario user = new Usuario();
+        lblUserInfo.setText(user.getUsuario());
+        */
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_menuSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,8 +233,21 @@ public class TelaMenu extends javax.swing.JFrame {
     private javax.swing.JTree jtropcoes;
     private javax.swing.JLabel lblConectado;
     private javax.swing.JLabel lblDataHora;
+    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblUserInfo;
     private javax.swing.JMenu menuSair;
     private javax.swing.JMenu menuUsuario;
     // End of variables declaration//GEN-END:variables
-}
+//Classe para implementar Hora
+
+    class hora implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Calendar now = Calendar.getInstance();
+            lblHora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        }
+    }
+
+}//Fim da Classe principal
+

@@ -6,6 +6,7 @@
 package telas;
 
 import entidades.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,13 +36,13 @@ public class TelaLogin extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
         tfdUsuario = new javax.swing.JTextField();
-        tfdSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        pfdSenha = new javax.swing.JPasswordField();
         jsSaudacao = new javax.swing.JPanel();
         lblSaudacao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Programa Novo");
+        setTitle("Login");
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/LogoK.PNG"))); // NOI18N
 
@@ -86,9 +87,9 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addGroup(jpLoginLayout.createSequentialGroup()
                         .addComponent(lblSenha)
                         .addGap(14, 14, 14)))
-                .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(tfdSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                    .addComponent(tfdUsuario))
+                .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfdUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .addComponent(pfdSenha))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -105,10 +106,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jpLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSenha)
-                    .addComponent(tfdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pfdSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         lblSaudacao.setText("Bem vindo! Acesso ao Sistema");
@@ -155,16 +156,24 @@ public class TelaLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         String nome = "admin";
         String senha = "admin";
         
         Usuario login = new Usuario(nome, senha);
-        
-        
-
+        if(tfdUsuario.getText().equals(login.getUsuario()) && pfdSenha.getText().equals(login.getSenha())){
+            TelaMenu menu = new TelaMenu();
+            menu.setVisible(true);
+            this.dispose();            
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
+            tfdUsuario.setText("");
+            pfdSenha.setText("");
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -212,7 +221,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaudacao;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTextField tfdSenha;
+    private javax.swing.JPasswordField pfdSenha;
     private javax.swing.JTextField tfdUsuario;
     // End of variables declaration//GEN-END:variables
 }
