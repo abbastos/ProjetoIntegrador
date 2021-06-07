@@ -65,13 +65,11 @@ public class TelaMenu extends javax.swing.JFrame {
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Vendas");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Tabela de Preços");
-        treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Registro de Vendas");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Consultas");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Estoque de Produtos");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Estoque e Preço Produtos");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         jtropcoes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
