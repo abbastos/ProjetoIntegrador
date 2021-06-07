@@ -11,6 +11,8 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JTree;
 import javax.swing.Timer;
 
 /**
@@ -59,15 +61,7 @@ public class TelaMenu extends javax.swing.JFrame {
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Cadastros");
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Cadastro de Cliente");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Cadastro de Fornecedor");
-        treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Cadastro de Produtos");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Cadastro de Usuários");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Compras/Fornecedores");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Ordens de Compras");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Vendas");
@@ -81,6 +75,11 @@ public class TelaMenu extends javax.swing.JFrame {
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         jtropcoes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jtropcoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtropcoesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtropcoes);
 
         javax.swing.GroupLayout jpnPrincipalLayout = new javax.swing.GroupLayout(jpnPrincipal);
@@ -133,6 +132,11 @@ public class TelaMenu extends javax.swing.JFrame {
         jMenuBar1.add(menuUsuario);
 
         menuSair.setText("Sair");
+        menuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuSairMouseClicked(evt);
+            }
+        });
         menuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuSairActionPerformed(evt);
@@ -176,12 +180,12 @@ public class TelaMenu extends javax.swing.JFrame {
         //Hora
         Timer hora = new Timer(1000, new hora());
         hora.start();
-        
+
         //Usuário conectado
         /*
         Usuario user = new Usuario();
         lblUserInfo.setText(user.getUsuario());
-        */
+         */
 
     }//GEN-LAST:event_formWindowOpened
 
@@ -189,6 +193,28 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_menuSairActionPerformed
+
+    private void menuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSairMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_menuSairMouseClicked
+    //Teste para opções da Tree
+    private void jtropcoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtropcoesMouseClicked
+
+        String menu = jtropcoes.getLastSelectedPathComponent().toString();
+        //JOptionPane.showMessageDialog(this, menu);
+        
+        if (menu.equals("Cadastro de Cliente")){
+            TelaCadastroClientes telaClientes = new TelaCadastroClientes();
+            telaClientes.setVisible(true);
+        } else if (menu.equals("Cadastro de Produtos")){
+            TelaCadastroProdutos telaCadProdutos = new TelaCadastroProdutos();
+            telaCadProdutos.setVisible(true);
+        } else if (menu.equals("Registro de Vendas")){
+            TelaRegistroVendas telaVendas = new TelaRegistroVendas();
+            telaVendas.setVisible(true);
+        }     
+    }//GEN-LAST:event_jtropcoesMouseClicked
 
     /**
      * @param args the command line arguments

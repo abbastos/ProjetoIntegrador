@@ -5,6 +5,13 @@
  */
 package telas;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.Timer;
+
 /**
  *
  * @author adriano.bastos
@@ -17,7 +24,10 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
     public TelaCadastroClientes() {
         initComponents();
     }
-
+    @Override
+    public void setDefaultCloseOperation(int operation) {
+        super.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //To change body of generated methods, choose Tools | Templates.
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,13 +82,19 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
         sepCadastro2 = new javax.swing.JSeparator();
         sepCadastro3 = new javax.swing.JSeparator();
         jplInfoUser = new javax.swing.JPanel();
-        lblDataHora = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
         lblConectado = new javax.swing.JLabel();
         lblUserConectado = new javax.swing.JLabel();
+        lblHora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Clientes");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         btnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar-64.png"))); // NOI18N
         btnIncluir.setText("Incluir");
@@ -338,7 +354,7 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
                                         .addComponent(lblTelefone)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(tfdTelefone)))))
-                        .addGap(0, 70, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(sepCadastro3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -398,16 +414,36 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
                 .addComponent(sepCadastro3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jplInfoUser.setLayout(new java.awt.BorderLayout());
-
-        lblDataHora.setText("DataHora");
-        jplInfoUser.add(lblDataHora, java.awt.BorderLayout.LINE_END);
+        lblData.setText("Data");
 
         lblConectado.setText("   Conectado");
-        jplInfoUser.add(lblConectado, java.awt.BorderLayout.WEST);
 
         lblUserConectado.setText("   Usuário Conectado");
-        jplInfoUser.add(lblUserConectado, java.awt.BorderLayout.CENTER);
+
+        lblHora.setText("Hora");
+
+        javax.swing.GroupLayout jplInfoUserLayout = new javax.swing.GroupLayout(jplInfoUser);
+        jplInfoUser.setLayout(jplInfoUserLayout);
+        jplInfoUserLayout.setHorizontalGroup(
+            jplInfoUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jplInfoUserLayout.createSequentialGroup()
+                .addComponent(lblConectado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUserConectado, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblData, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jplInfoUserLayout.setVerticalGroup(
+            jplInfoUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblConectado)
+            .addComponent(lblUserConectado)
+            .addGroup(jplInfoUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lblData)
+                .addComponent(lblHora))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -445,7 +481,7 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+       this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirActionPerformed
@@ -467,6 +503,26 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        //Exibir data e hora do sistema em label no rodapé
+        //Data
+        Date dataSistema = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        lblData.setText(formato.format(dataSistema));
+
+        //Hora
+        Timer hora = new Timer(1000, new hora());
+        hora.start();
+
+        //Usuário conectado
+        /*
+        Usuario user = new Usuario();
+        lblUserInfo.setText(user.getUsuario());
+         */
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -522,8 +578,9 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
     private javax.swing.JLabel lblConectado;
     private javax.swing.JLabel lblContato;
     private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblDataHora;
+    private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblLocalidade;
     private javax.swing.JLabel lblLogradouro;
     private javax.swing.JLabel lblNome;
@@ -554,4 +611,17 @@ public class TelaCadastroClientes extends javax.swing.JFrame {
     private javax.swing.JTextField tfdTelefone;
     private javax.swing.JTextField tfdUf;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    //Classe para implementar Hora
+    class hora implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Calendar now = Calendar.getInstance();
+            lblHora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+        }
+    }
+
 }

@@ -17,7 +17,14 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     public TelaCadastroProdutos() {
         initComponents();
     }
-
+    
+    
+    @Override
+    public void setDefaultCloseOperation(int operation) {
+        super.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,6 +64,13 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
+        lblEstoque = new javax.swing.JLabel();
+        tfdEstoque = new javax.swing.JTextField();
+        btnAdicionarEstoque = new javax.swing.JButton();
+        btnRemoverEstoque = new javax.swing.JButton();
+        lblCidade1 = new javax.swing.JLabel();
+        tfdEstoqueAtual = new javax.swing.JTextField();
+        lblEstoqueAtual = new javax.swing.JLabel();
         jplInfoUser = new javax.swing.JPanel();
         lblDataHora = new javax.swing.JLabel();
         lblConectado = new javax.swing.JLabel();
@@ -199,6 +213,28 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
 
         tfdCidade.setFocusable(false);
 
+        lblEstoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEstoque.setText("Quantidade");
+
+        tfdEstoque.setFocusable(false);
+
+        btnAdicionarEstoque.setText("Adicionar");
+
+        btnRemoverEstoque.setText("Remover");
+        btnRemoverEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverEstoqueActionPerformed(evt);
+            }
+        });
+
+        lblCidade1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCidade1.setText("Estoque");
+
+        tfdEstoqueAtual.setFocusable(false);
+
+        lblEstoqueAtual.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEstoqueAtual.setText("Estoque Atual");
+
         javax.swing.GroupLayout jplDadosCadastroLayout = new javax.swing.GroupLayout(jplDadosCadastro);
         jplDadosCadastro.setLayout(jplDadosCadastroLayout);
         jplDadosCadastroLayout.setHorizontalGroup(
@@ -253,6 +289,25 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
                         .addGap(0, 49, Short.MAX_VALUE))
                     .addComponent(sepCadastro3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(jplDadosCadastroLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCidade1)
+                    .addGroup(jplDadosCadastroLayout.createSequentialGroup()
+                        .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jplDadosCadastroLayout.createSequentialGroup()
+                                .addComponent(lblEstoqueAtual)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfdEstoqueAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jplDadosCadastroLayout.createSequentialGroup()
+                                .addComponent(lblEstoque)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tfdEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addComponent(btnAdicionarEstoque)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemoverEstoque)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jplDadosCadastroLayout.setVerticalGroup(
             jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +342,19 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
                     .addComponent(tfdCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(sepCadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
+                .addComponent(lblCidade1)
+                .addGap(18, 18, 18)
+                .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEstoque)
+                    .addComponent(tfdEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarEstoque)
+                    .addComponent(btnRemoverEstoque))
+                .addGap(18, 18, 18)
+                .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfdEstoqueAtual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEstoqueAtual))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(sepCadastro3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -338,7 +405,7 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirActionPerformed
@@ -348,6 +415,10 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnRemoverEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoverEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,10 +457,12 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionarEstoque;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnIncluir;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnRemoverEstoque;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -401,10 +474,13 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel lblCaixaPostal;
     private javax.swing.JLabel lblCep;
     private javax.swing.JLabel lblCidade;
+    private javax.swing.JLabel lblCidade1;
     private javax.swing.JLabel lblCnpjCpf;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblConectado;
     private javax.swing.JLabel lblDataHora;
+    private javax.swing.JLabel lblEstoque;
+    private javax.swing.JLabel lblEstoqueAtual;
     private javax.swing.JLabel lblLocalidade;
     private javax.swing.JLabel lblLogradouro;
     private javax.swing.JLabel lblNomeFantasia;
@@ -417,6 +493,8 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField tfdCaixaPostal;
     private javax.swing.JTextField tfdCidade;
     private javax.swing.JTextField tfdCodigo;
+    private javax.swing.JTextField tfdEstoque;
+    private javax.swing.JTextField tfdEstoqueAtual;
     private javax.swing.JTextField tfdLocalidade;
     private javax.swing.JTextField tfdLogradouro;
     private javax.swing.JTextField tfdRazaoSocial;
