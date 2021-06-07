@@ -201,20 +201,29 @@ public class TelaMenu extends javax.swing.JFrame {
 
         String menu = jtropcoes.getLastSelectedPathComponent().toString();
         //JOptionPane.showMessageDialog(this, menu);
-        
-        if (menu.equals("Cadastro de Cliente")){
-            TelaCadastroClientes telaClientes = new TelaCadastroClientes();
-            telaClientes.setVisible(true);
-        } else if (menu.equals("Cadastro de Produtos")){
-            TelaCadastroProdutos telaCadProdutos = new TelaCadastroProdutos();
-            telaCadProdutos.setVisible(true);
-        } else if (menu.equals("Registro de Vendas")){
-            TelaRegistroVendas telaVendas = new TelaRegistroVendas();
-            telaVendas.setVisible(true);
-        } else if (menu.equals("Estoque e Preço Produtos")){
-            TelaConsultaEstoquePreco telaConsulta = new TelaConsultaEstoquePreco();
-            telaConsulta.setVisible(true);
-        }    
+
+        switch (menu) {
+            case "Cadastro de Cliente":
+                TelaCadastroClientes telaClientes = new TelaCadastroClientes();
+                telaClientes.setVisible(true);
+                break;
+            case "Cadastro de Produtos":
+                TelaCadastroProdutos telaCadProdutos = new TelaCadastroProdutos();
+                telaCadProdutos.setVisible(true);
+                break;
+            case "Registro de Vendas":
+                TelaRegistroVendas telaVendas = new TelaRegistroVendas();
+                telaVendas.setVisible(true);
+                break;
+            case "Estoque e Preço Produtos":
+                TelaConsultaEstoquePreco telaConsulta = new TelaConsultaEstoquePreco();
+                telaConsulta.setVisible(true);
+                break;
+
+            default:
+                throw new AssertionError();
+        }
+
     }//GEN-LAST:event_jtropcoesMouseClicked
 
     /**
