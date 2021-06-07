@@ -211,7 +211,10 @@ public class TelaMenu extends javax.swing.JFrame {
         } else if (menu.equals("Registro de Vendas")){
             TelaRegistroVendas telaVendas = new TelaRegistroVendas();
             telaVendas.setVisible(true);
-        }     
+        } else if (menu.equals("Estoque e Preço Produtos")){
+            TelaConsultaEstoquePreco telaConsulta = new TelaConsultaEstoquePreco();
+            telaConsulta.setVisible(true);
+        }    
     }//GEN-LAST:event_jtropcoesMouseClicked
 
     /**
