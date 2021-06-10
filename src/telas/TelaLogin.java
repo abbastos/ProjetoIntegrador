@@ -6,6 +6,7 @@
 package telas;
 
 import entidades.Usuario;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,6 +72,12 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        pfdSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pfdSenhaKeyPressed(evt);
             }
         });
 
@@ -160,15 +167,15 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         String nome = "admin";
         String senha = "admin";
-        
+
         Usuario login = new Usuario(nome, senha);
-        if(tfdUsuario.getText().equals(login.getUsuario()) && pfdSenha.getText().equals(login.getSenha())){
+        if (tfdUsuario.getText().equals(login.getUsuario()) && pfdSenha.getText().equals(login.getSenha())) {
             TelaMenu menu = new TelaMenu();
             menu.setVisible(true);
-            this.dispose();            
+            this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
             tfdUsuario.setText("");
@@ -176,6 +183,26 @@ public class TelaLogin extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pfdSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pfdSenhaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String nome = "admin";
+            String senha = "admin";
+
+            Usuario login = new Usuario(nome, senha);
+            if (tfdUsuario.getText().equals(login.getUsuario()) && pfdSenha.getText().equals(login.getSenha())) {
+                TelaMenu menu = new TelaMenu();
+                menu.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
+                tfdUsuario.setText("");
+                pfdSenha.setText("");
+            }
+
+        }
+    }//GEN-LAST:event_pfdSenhaKeyPressed
 
     /**
      * @param args the command line arguments

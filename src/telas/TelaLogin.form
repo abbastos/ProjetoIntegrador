@@ -154,6 +154,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pfdSenha">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pfdSenhaKeyPressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
