@@ -180,6 +180,7 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
             tfdUsuario.setText("");
             pfdSenha.setText("");
+            tfdUsuario.requestFocus();
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -199,6 +200,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
                 tfdUsuario.setText("");
                 pfdSenha.setText("");
+                tfdUsuario.requestFocus();
             }
 
         }
