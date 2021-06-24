@@ -66,9 +66,6 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
         tfdCidade = new javax.swing.JTextField();
         sepCadastro2 = new javax.swing.JSeparator();
         sepCadastro3 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
         lblEstoque = new javax.swing.JLabel();
         tfdEstoque = new javax.swing.JTextField();
         btnAdicionarEstoque = new javax.swing.JButton();
@@ -76,6 +73,9 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
         lblCidade1 = new javax.swing.JLabel();
         tfdEstoqueAtual = new javax.swing.JTextField();
         lblEstoqueAtual = new javax.swing.JLabel();
+        tfdCategoria = new javax.swing.JTextField();
+        tfdMarca = new javax.swing.JTextField();
+        tfdOrigem = new javax.swing.JTextField();
         jplInfoUser = new javax.swing.JPanel();
         lblData = new javax.swing.JLabel();
         lblConectado = new javax.swing.JLabel();
@@ -263,7 +263,7 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfdCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(tfdCategoria))
                                 .addGap(118, 118, 118)
                                 .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jplDadosCadastroLayout.createSequentialGroup()
@@ -272,14 +272,11 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
                                             .addComponent(lblRazaoSocial)
                                             .addComponent(lblCep))
                                         .addGap(18, 18, 18)
-                                        .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(tfdRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jplDadosCadastroLayout.createSequentialGroup()
-                                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(129, 129, 129))
-                                            .addGroup(jplDadosCadastroLayout.createSequentialGroup()
-                                                .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(255, 255, 255))))
+                                            .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(tfdOrigem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                                .addComponent(tfdMarca, javax.swing.GroupLayout.Alignment.LEADING))))
                                     .addGroup(jplDadosCadastroLayout.createSequentialGroup()
                                         .addComponent(lblCaixaPostal)
                                         .addGap(18, 18, 18)
@@ -297,7 +294,7 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
                                 .addComponent(lblCidade)
                                 .addGap(18, 18, 18)
                                 .addComponent(tfdCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 35, Short.MAX_VALUE))
                     .addComponent(sepCadastro3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
             .addGroup(jplDadosCadastroLayout.createSequentialGroup()
@@ -333,14 +330,14 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
                 .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCnpjCpf)
                     .addComponent(lblNomeFantasia)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfdMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLogradouro)
                     .addComponent(tfdLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCep)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfdOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jplDadosCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLocalidade)
@@ -516,9 +513,6 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnRemoverEstoque;
     private javax.swing.JButton btnSair;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel jplDadosCadastro;
     private javax.swing.JPanel jplInfoUser;
@@ -544,12 +538,15 @@ public class TelaCadastroProdutos extends javax.swing.JFrame {
     private javax.swing.JSeparator sepMenu1;
     private javax.swing.JSeparator sepMenu2;
     private javax.swing.JTextField tfdCaixaPostal;
+    private javax.swing.JTextField tfdCategoria;
     private javax.swing.JTextField tfdCidade;
     private javax.swing.JTextField tfdCodigo;
     private javax.swing.JTextField tfdEstoque;
     private javax.swing.JTextField tfdEstoqueAtual;
     private javax.swing.JTextField tfdLocalidade;
     private javax.swing.JTextField tfdLogradouro;
+    private javax.swing.JTextField tfdMarca;
+    private javax.swing.JTextField tfdOrigem;
     private javax.swing.JTextField tfdRazaoSocial;
     // End of variables declaration//GEN-END:variables
 
