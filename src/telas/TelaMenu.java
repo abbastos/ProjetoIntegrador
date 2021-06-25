@@ -8,9 +8,12 @@ package telas;
 import entidades.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.Timer;
@@ -216,9 +219,17 @@ public class TelaMenu extends javax.swing.JFrame {
                 telaVendas.setVisible(true);
                 break;
             case "Estoque e Preço Produtos":
-                TelaConsultaEstoquePreco telaConsulta = new TelaConsultaEstoquePreco();
+                TelaConsultaEstoquePreco telaConsulta = null;
+            try {
+                telaConsulta = new TelaConsultaEstoquePreco();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(TelaMenu.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 telaConsulta.setVisible(true);
                 break;
+
 
             default:
                 throw new AssertionError();

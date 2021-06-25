@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"applicacao","l":"Main"},{"p":"telas","l":"TelaCadastroClientes"},{"p":"telas","l":"TelaCadastroProdutos"},{"p":"telas","l":"TelaConsultaEstoquePreco"},{"p":"telas","l":"TelaLogin"},{"p":"telas","l":"TelaMenu"},{"p":"telas","l":"TelaRegistroVendas"},{"p":"entidades","l":"Usuario"}]

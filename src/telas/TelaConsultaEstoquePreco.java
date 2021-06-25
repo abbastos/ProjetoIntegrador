@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package telas;
+import Dao.ProdutosDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Timer;
 /**
  *
@@ -16,11 +22,19 @@ import javax.swing.Timer;
  */
 public class TelaConsultaEstoquePreco extends javax.swing.JFrame {
 
+    List<entidades.Produto> lista = new ArrayList<entidades.Produto>();
+    ProdutosDAO dao;
+    Integer posicaoLista;
     /**
      * Creates new form TelaCadastroFornecedor
      */
-    public TelaConsultaEstoquePreco() {
+    public TelaConsultaEstoquePreco() throws ClassNotFoundException, SQLException {
         initComponents();
+        dao = new ProdutosDAO();
+        lista = dao.Listar();
+        
+        
+        
     }
     
     
@@ -63,6 +77,11 @@ public class TelaConsultaEstoquePreco extends javax.swing.JFrame {
         lblPesquisa.setText("Pesquisa");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jplOpcoesLayout = new javax.swing.GroupLayout(jplOpcoes);
         jplOpcoes.setLayout(jplOpcoesLayout);
@@ -201,6 +220,13 @@ public class TelaConsultaEstoquePreco extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        entidades.Produto prod = lista.get(0);
+        
+        
+        
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
         private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
 
         //Exibir data e hora do sistema em label no rodapé
@@ -254,7 +280,13 @@ public class TelaConsultaEstoquePreco extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaConsultaEstoquePreco().setVisible(true);
+                try {
+                    new TelaConsultaEstoquePreco().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(TelaConsultaEstoquePreco.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaConsultaEstoquePreco.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

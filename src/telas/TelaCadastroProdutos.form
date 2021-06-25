@@ -204,12 +204,12 @@
                                       <Component id="lblCnpjCpf" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfdCodigo" pref="147" max="32767" attributes="0"/>
-                                      <Component id="tfdCategoria" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="tfdCategoria" min="-2" pref="147" max="-2" attributes="0"/>
+                                      <Component id="tfdCodigo" min="-2" pref="147" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblNomeFantasia" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -217,40 +217,37 @@
                                               <Component id="lblCep" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tfdRazaoSocial" min="-2" pref="391" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="tfdOrigem" alignment="0" pref="213" max="32767" attributes="0"/>
-                                                  <Component id="tfdMarca" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="tfdOrigem" alignment="0" pref="213" max="32767" attributes="0"/>
+                                              <Component id="tfdMarca" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="tfdDescProduto" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="lblCaixaPostal" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="tfdCaixaPostal" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tfdPrecoVenda" pref="189" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblLocalidade" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="tfdLocalidade" min="-2" pref="120" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblLogradouro" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="tfdLogradouro" min="-2" pref="256" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblLogradouro" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Component id="tfdModelo" min="-2" pref="213" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lblCidade" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tfdCidade" min="-2" pref="104" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblCidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblLocalidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tfdPrecoCusto" pref="188" max="32767" attributes="0"/>
+                                      <Component id="tfdLimiteEstoque" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                       <Component id="sepCadastro3" alignment="1" max="32767" attributes="0"/>
                   </Group>
@@ -261,25 +258,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblCidade1" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lblEstoqueAtual" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tfdEstoqueAtual" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lblEstoque" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="tfdEstoque" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="lblEstoque" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="tfdQtd" min="-2" pref="87" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="btnAdicionarEstoque" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnRemoverEstoque" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblEstoqueAtual" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="tfdEstoque" min="-2" pref="87" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="439" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -289,9 +282,9 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdDescProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -303,21 +296,21 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCep" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tfdOrigem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblLocalidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdLocalidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCaixaPostal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdCaixaPostal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdPrecoVenda" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdPrecoCusto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdLimiteEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="sepCadastro2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -326,16 +319,16 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfdEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAdicionarEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnRemoverEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdQtd" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tfdEstoqueAtual" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblEstoqueAtual" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfdEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
                   <Component id="sepCadastro3" min="-2" pref="10" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -414,36 +407,6 @@
             <Property name="text" type="java.lang.String" value="Limite de Estoque:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfdCodigo">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfdLogradouro">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfdLocalidade">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfdCaixaPostal">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfdRazaoSocial">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfdCidade">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JSeparator" name="sepCadastro2">
         </Component>
         <Component class="javax.swing.JSeparator" name="sepCadastro3">
@@ -454,11 +417,6 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Quantidade"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfdEstoque">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAdicionarEstoque">
@@ -482,11 +440,6 @@
             <Property name="text" type="java.lang.String" value="Estoque"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfdEstoqueAtual">
-          <Properties>
-            <Property name="focusable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblEstoqueAtual">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -500,6 +453,22 @@
         <Component class="javax.swing.JTextField" name="tfdMarca">
         </Component>
         <Component class="javax.swing.JTextField" name="tfdOrigem">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdModelo">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdLimiteEstoque">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdDescProduto">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdPrecoVenda">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdQtd">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdPrecoCusto">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdEstoque">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfdCodigo">
         </Component>
       </SubComponents>
     </Container>
